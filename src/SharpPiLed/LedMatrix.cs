@@ -1,4 +1,3 @@
-
 namespace SharpPiLed
 {
 	using System;
@@ -8,6 +7,11 @@ namespace SharpPiLed
 	{
 		private IntPtr _matrix;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="options"></param>
+		/// <param name="arguments">command line arguments with executable file name as a first element</param>
 		public LedMatrix(LedMatrixOptions options = null, string[] arguments = null)
 		{
 			options = options ?? new LedMatrixOptions();
@@ -16,7 +20,6 @@ namespace SharpPiLed
 			try
 			{
 				var nativeArguments = arguments.ConvertToNativeArguments(options);
-
 				_matrix = RpiRgbLedMatrix.led_matrix_create_from_options_const_argv(ref opt, nativeArguments.Length, nativeArguments);
 			}
 			finally

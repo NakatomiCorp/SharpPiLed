@@ -10,9 +10,9 @@ namespace SharpPiLed
 
 		/// <summary>
 		/// The "rows" are the number of rows supported by the display, so 32 or 16.
-		/// Default: 32.
+		/// Default: 64.
 		/// </summary>
-		public int Rows { get; set; } = 32;
+		public int Rows { get; set; } = 64;
 
 		/// <summary>
 		/// The "cols" are the number of columns per panel. Typically something
@@ -20,9 +20,9 @@ namespace SharpPiLed
 		/// cols * chain_length is the total length of the display, so you can
 		/// represent a 64 wide display as cols=32, chain=2 or cols=64, chain=1;
 		/// same thing, but more convenient to think of.
-		/// Default: 32.
+		/// Default: 64.
 		/// </summary>
-		public int Columns { get; set; } = 32;
+		public int Columns { get; set; } = 64;
 
 		/// <summary>
 		/// The chain_length is the number of displays daisy-chained together
@@ -116,6 +116,6 @@ namespace SharpPiLed
 		/// <summary>
 		/// Slowdown GPIO. Needed for faster Pis/slower panels.
 		/// </summary>
-		public int GpioSlowdown { get; set; } = 1;
+		public int GpioSlowdown { get; set; } = 2;
 	}
 }

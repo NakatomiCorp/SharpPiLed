@@ -29,6 +29,11 @@ namespace SharpPiLed
 			RpiRgbLedMatrix.led_canvas_set_pixel(_canvas, x, y, color.Red, color.Green, color.Blue);
 		}
 
+		public void SetImage(int xOffset, int yOffset, byte[] imageBuffer, int bufferSizeBytes, int imageWidth, int imageHeight, bool isBgr)
+		{
+			RpiRgbLedMatrix.set_image(_canvas, xOffset, yOffset, imageBuffer, bufferSizeBytes, imageWidth, imageHeight, isBgr);
+		}
+
 		public void Fill(Color color)
 		{
 			RpiRgbLedMatrix.led_canvas_fill(_canvas, color.Red, color.Green, color.Blue);

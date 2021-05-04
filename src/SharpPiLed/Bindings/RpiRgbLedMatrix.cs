@@ -16,6 +16,9 @@ namespace SharpPiLed.Bindings
 		public static extern void led_canvas_set_pixel(IntPtr canvas, int x, int y, byte r, byte g, byte b);
 
 		[DllImport(LIBRARY_NAME)]
+		public static extern void set_image(IntPtr canvas, int canvas_offset_x, int canvas_offset_y, [Out]byte[] image_buffer, int buffer_size_bytes, int image_width, int image_height, bool is_bgr);
+
+		[DllImport(LIBRARY_NAME)]
 		public static extern void led_canvas_clear(IntPtr canvas);
 
 		[DllImport(LIBRARY_NAME)]

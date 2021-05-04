@@ -6,7 +6,13 @@ namespace SharpPiLed
 	{
 		public static string[] ConvertToNativeArguments(this string[] args, LedMatrixOptions options)
 		{
-			args = args ?? Environment.GetCommandLineArgs();
+			if (args == null || args.Length == 0)
+			{
+				// Fix for wrongly provided command line arguments.
+				// For example if args array from Main(string args[]) is used (instead of Environment.GetCommandLineArgs())
+				// and the array is empty.
+				args = Environment.GetCommandLineArgs();
+			}
 
 			// Because gpio-slowdown is not provided in the options struct, we manually add it.
 			// Let's add it first to the command-line we pass to the
@@ -23,7 +29,7 @@ namespace SharpPiLed
 			// 0 as our sentinel).
 			string[] slowdown_arg = new string[] { args[0], $"--led-slowdown-gpio={((options.GpioSlowdown == 0) ? 1 : options.GpioSlowdown)}" };
 
-			string[] argv = new string[ 2 + args.Length - 1 ];
+			string[] argv = new string[2 + args.Length - 1];
 
 			// Progname + slowdown arg first
 			slowdown_arg.CopyTo(argv, 0);
@@ -32,7 +38,7 @@ namespace SharpPiLed
 			// the user to not only provide any of the other --led-*
 			// options, but also override the --led-slowdown-gpio arg on
 			// the commandline.
-			Array.Copy(args, 1, argv, 2, args.Length-1);
+			Array.Copy(args, 1, argv, 2, args.Length - 1);
 
 			return argv;
 		}
