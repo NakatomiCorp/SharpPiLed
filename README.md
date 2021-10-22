@@ -1,1 +1,1 @@
-This is a fork of [SharpPiLed](https://github.com/gingters/SharpPiLed) library. I would **strongly recommnd you to use the [original](https://github.com/gingters/SharpPiLed)** as this version has been modified for our own projects and it's missing some features of the original.
+This is a fork of [SharpPiLed](https://github.com/gingters/SharpPiLed) library. I would **strongly recommend you to use the [original](https://github.com/gingters/SharpPiLed)** as this version has been modified for our own projects and it's missing some features of the original.
